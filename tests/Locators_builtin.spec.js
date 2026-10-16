@@ -17,6 +17,20 @@ test('LocatorsBuiltIn', async ({ page }) => {
 
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
+    const logo = await page.getByAltText('company-branding')
+    await expect(logo).toBeVisible(console.log("Logo txt is visible"));
+
+
+    await page.getByPlaceholder('Username').fill('Admin');
+    await page.getByPlaceholder('password').fill('admin123');
+    await page.getByRole('button', { type: 'submit' }).click();
+
+
+
+    const loginName = await page.locator("//p[@class='oxd-userdropdown-name']").textContent();
+
+    await expect(await page.getByText(loginName)).toBeVisible()
+
 
 
 })
