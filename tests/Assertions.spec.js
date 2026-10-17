@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { exec } = require('node:child_process');
+
 
 test('Assertions', async ({ page }) => {
 
