@@ -8,7 +8,7 @@ test('Handle bootstrap dropdown', async ({ page }) => {
 
     await page.goto("https://www.jquery-az.com/boots/demo.php?ex=63.0_2");
 
-    // Click on the multiselect dropdown to open it
+    // Click on the multiselect dropdown to open it 
     await page.locator(".multiselect").click();
 
     // Locate all options within the dropdown
