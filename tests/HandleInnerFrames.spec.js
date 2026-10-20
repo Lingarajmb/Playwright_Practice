@@ -1,39 +1,29 @@
-// import { test, expect } from "@playwright/test";
 
-// test("LocatingMultipleElements", async ({ page }) => {
+//syntax
+// const parentFrame = page.frame({ url: /frame_3\.html/ });
 
-//     await page.goto('https://ui.vision/demo/webtest/frames/');
+// const children = parentFrame.childFrames();   // Frame[]
 
-//     const frame3 = page.frame({ url: "https://ui.vision/demo/webtest/frames/frame_3.html" });
-//     await frame3.locator("//input[@name='mytext1']").fill("wellcome");
+// console.log(children.length);                 // number of child frames
+// console.log(children[0].url());               // URL of first child
 
-
-
-
+// await children[0].locator("input").click();   // use the child like any frame
 
 
-
-//     await page.waitForTimeout(5000);
-
-// });
 
 
 import { test, expect } from "@playwright/test";
-
 test("LocatingMultipleElements", async ({ page }) => {
 
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
-    const frame3 = page.frameLocator("frame[src='frame_3.html']");
-    // await frame3.locator("//input[@name='mytext3']").fill("wellcome");
+    const frameElement = await page.waitForSelector("frame[src='frame_3.html']");
+    const parentFrame = await frameElement.contentFrame();
+    const children = parentFrame.childFrames(); // Frame[]
+    //console.log("Number of nested frames are : ", children.length);   // number of child frames
+    //console.log(children[0].url());
 
-    //nested frames 
-    // const childFrame = await frames.childFrame();
-    // await childFrame[0].locator('//div[@class="Od2TWd hYsg7c i9xfbb"]').click();
+    await children[0].locator("//div[@role='radio' and @aria-label='Hi, I am the UI.Vision IDE']").click();
 
-    const innerFrame = frame3.frameLocator("iframe");
-    await innerFrame.locator('//div[@class="Od2TWd hYsg7c i9xfbb"]').click();
-
-
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3000);
 });
