@@ -6,9 +6,8 @@ const { test, expect } = require('@playwright/test');
 // test.skip('Single file Uplaod', async ({ page }) => {
 
 //     //  await page.goto('https://testautomationpractice.blogspot.com/');
-//     //await page.locator('//input[@id="singleFileInput"]').click();
-
 //     // await page.locator("//input[@id='singleFileInput']").setInputFiles('tests/uploadFiles/Lingaraj_Belagali_Resume.pdf')
+
 //     // pass cmd like this : npx playwright test "tests/UploadFiles.spec.js" --headed
 //     //  await page.waitForTimeout(10000);
 
