@@ -16,7 +16,6 @@ test('Mouse Double Click', async ({ page }) => {
     const f2 = await page.locator("//input[@id='field2']");
     await expect(f2).toHaveValue('Hello World!');
 
-
     await page.waitForTimeout(3000);
 
 
