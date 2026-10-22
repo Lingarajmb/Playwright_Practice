@@ -44,5 +44,5 @@ test('Add a product to cart test', async () => {
     await page.on('dialog', async (dailog) => {
         await expect(dailog.message()).toContain('Product added.');
         await dailog.accept();
-    })
+    });
 });
