@@ -72,12 +72,29 @@ test('test4', async ({ page }) => {
 //     expect(1).toBe(2);  // actul // if both exp and actual is failed then test pass
 // });
 
-test('test6', async ({ page, browserName }) => {
-    console.log('this test6')
-    if (browsername === 'chromium') {
-        test.fail() //expected
-    }
-});
+// test('test6', async ({ page, browserName }) => {
+//     console.log('this test6')
+//     if (browserName === 'chromium') { //actual
+//         test.fail() //expected
+//     }
+// }); //output : Expected to fail, but passed.
 
 
 
+//6.slow
+/*
+test('test7', async ({ page }) => {
+    console.log('this is test7')
+    await page.goto('https://www.demoblaze.com/')
+}); // config = timeout: (2000), // output : Test timeout of 2000ms exceeded.
+
+
+test('test8', async ({ page }) => {
+    test.slow(); // this annotation triple the time 1000 = 3000 
+    //another way to increase the time 
+    //test.setTimeout(5000);
+    await page.goto('https://www.demoblaze.com/')
+    console.log('this is test7 slow annotation')
+
+}); // config = timeout: (2000), // output : Passed
+*/
