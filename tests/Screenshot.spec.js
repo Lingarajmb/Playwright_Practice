@@ -26,7 +26,7 @@ test('Full Page Screenshot', async ({ page }) => {
 
 //Full Screenshot
 
-test.only('Element Screenshot', async ({ page }) => {
+test('Element Screenshot', async ({ page }) => {
 
     await page.goto('https://www.demoblaze.com/');
     await page.locator("(//div[@class='card h-100'])[1]").screenshot({

@@ -19,22 +19,30 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  //retries: process.env.CI ? 1 : 0,
-  retries: 2,
+  retries: process.env.CI ? 1 : 0,
+  //retries: 2,
   //npx playwright test "tests/UploadFiles.spec.js" --headed --retries=2
 
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  //reporter: 'html',
+  reporter: 'html',
   //reporter: 'list',
   //reporter: [['json', { outputFile: 'results.json' }]],
   //reporter: [['junit', { outputFile: 'results.xml' }]],
-  reporter: [['list'],
-  ['html'],
-  ['junit', { outputFile: 'results.xml' }],
-  ['json', { outputFile: 'results.json' }]
-  ],
+  // reporter: [['list'],
+  // ['html'],
+  // ['junit', { outputFile: 'results.xml' }],
+  // ['json', { outputFile: 'results.json' }]
+  // ],
+
+  // reporter: [
+  //   ['list'], 
+  //   ['html', { open: 'never' }],
+  //   ['junit', { outputFile: 'results.xml' }],
+  //   ['json', { outputFile: 'results.json' }],
+  //   ['allure-playwright', { outputFolder: 'my-allure-results' }]
+  // ],
 
 
 
